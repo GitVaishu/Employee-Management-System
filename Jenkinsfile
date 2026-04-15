@@ -3,13 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/GitVaishu/Employee-Management-System.git'
-            }
-        }
-
-       
         stage('Clean') {
             steps {
                 sh 'mvn clean'
