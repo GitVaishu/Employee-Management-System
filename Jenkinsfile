@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'   // make sure Jenkins has Maven configured
-        jdk 'Java17'    // match your system Java version
-    }
-
     stages {
 
         stage('Clone Repository') {
