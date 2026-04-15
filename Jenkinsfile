@@ -9,6 +9,20 @@ pipeline {
             }
         }
 
+        stage('Set Up JDK') {
+            steps {
+                // Assuming JDK 17 is installed on the Jenkins agent
+                env.JAVA_HOME = tool name: 'JDK 17', type: 'jdk'
+                env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+            }
+        }
+
+        stage('Clean') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'mvn clean compile'
